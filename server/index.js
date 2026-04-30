@@ -17,11 +17,7 @@ const pgClient = new Pool({
   host: process.env.pgHost,
   database: process.env.pgDatabase,
   password: process.env.pgPassword,
-  port: process.env.pgPort,
-  ssl:
-    process.env.NODE_ENV !== 'production'
-      ? false
-      : { rejectUnauthorized: false },
+  port: process.env.pgPort
 });
 
 // Create table automatically when server starts
@@ -95,6 +91,10 @@ app.get("/todos", async (req, res) => {
     console.error("Error getting todos:", error);
     res.status(500).json({ error: "Server error getting todos" });
   }
+});
+
+app.get('/api/hostname', (req, res) => {
+  res.send(`Handled by pod: ${process.env.HOSTNAME}`);
 });
 
 // Add a new todo item
