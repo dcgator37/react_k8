@@ -1,0 +1,11 @@
+{
+    "name": "todo-worker",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "NODE_ENV=production node index.js"
+    },
+    "dependencies": {
+        "pg": "^8.11.3"
+    }
+}
