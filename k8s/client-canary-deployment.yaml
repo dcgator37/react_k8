@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-canary-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web
+      version: canary
+  template:
+    metadata:
+      labels:
+        component: web
+        version: canary
+    spec:
+      containers:
+        - name: client
+          image: dcgator8/todo-client_k8_v2
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
