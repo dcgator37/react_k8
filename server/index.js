@@ -93,7 +93,7 @@ app.get("/todos", async (req, res) => {
   }
 });
 
-app.get('/api/hostname', (req, res) => {
+app.get('/hostname', (req, res) => {
   res.send(`Handled by pod: ${process.env.HOSTNAME}`);
 });
 
