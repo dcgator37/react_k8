@@ -16,10 +16,19 @@ spec:
         - name: worker
           image: dcgator8/todo-worker_k8
           env:
-            - name: REDIS_HOST
-              value: "redis-cluster-ip-service"
-            - name: REDIS_PORT
-              value: "6379"
+            - name: PGHOST
+              value: "postgres-cluster-ip-service"
+            - name: PGPORT
+              value: "5432"
+            - name: PGUSER
+              value: "postgres"
+            - name: PGDATABASE
+              value: "postgres"
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgpassword
+                  key: PGPASSWORD
           resources:
             requests:
               cpu: "100m"
