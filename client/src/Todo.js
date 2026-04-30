@@ -44,7 +44,7 @@ class Todo extends Component {
     render() {
         return (
             <div>
-                <h1>Todo List - Stable</h1>
+                <h1>Todo List - Canary</h1>
                 {this.state.error && <div style={{color: 'red'}}>Error: {this.state.error}</div>}
                 <form onSubmit={this.handlesubmit}>
                     <input
