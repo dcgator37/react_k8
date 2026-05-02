@@ -8,8 +8,9 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: 'true'
     # ADD ANNOTATION
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-by-cookie: "canary"
+    nginx.ingress.kubernetes.io/canary: 'true'
+    nginx.ingress.kubernetes.io/canary-weight: '10'
+    nginx.ingress.kubernetes.io/affinity-canary-behavior: 'sticky'
     # ADD ANNOTATION
 spec:
   ingressClassName: nginx
